@@ -1,0 +1,108 @@
+canvas {
+    border: 5px solid grey;
+}
+
+body {
+    background: rgb(15,15,15);
+    font-family: sans-serif;
+    color: #eeeeee;
+}
+
+#game {
+    display: flex;
+    width : 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#dashboard {
+    height: 500px;
+    margin-left: 20px; 
+}
+
+.blue-button {
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	background-color:#3d94f6;
+	border-radius:6px;
+	border:1px solid #337fed;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #1570cd;
+}
+
+.blue-button:hover {
+	background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+	background-color:#1e62d0;
+}
+
+.blue-button:active {
+	position:relative;
+	top:1px;
+}
+
+.red-button {
+	box-shadow:inset 0px 1px 0px 0px #f5978e;
+	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+	background-color:#f24537;
+	border-radius:6px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+
+.red-button:hover {
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+	background-color:#c62d1f;
+}
+
+.red-button:active {
+	position:relative;
+	top:1px;
+}
+
+
+.number {
+    font-family: 'Orbitron', sans-serif;
+    color: brown;
+}
+
+input {
+    border-width:2px; 
+    border-color:#cccccc; 
+    border-style:solid; 
+    padding:6px; 
+    font-size:14px; 
+    background-color:#202020; 
+    color:#eeeeee; 
+    border-radius:5px; 
+    width : 250px;
+}
+
+#options {
+    border: 5px solid grey;
+    background: #303030;
+    width: 270px;
+    padding: 20px;
+    position: fixed;
+    left: 35%;
+    top: 22%;
+}
+
+#options-button {
+    margin-left:auto;
+    margin-right:0;
+}
