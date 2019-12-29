@@ -73,7 +73,7 @@
             const downKey = 40;
 
             body.onkeydown = event => this._animate(event);
-            //setInterval(() => this._animate({ keyCode: downKey }), 500);
+            //setInterval(() => this._animate({ keyCode: downKey }), 250);
         }
 
         _removeLinesWin() {
@@ -108,9 +108,8 @@
                 }
             });
 
-
             const removedLines = Array.from(removedLinesSet);
-            removedLines.sort((line1, line2) => line2 - line1);
+            removedLines.sort();
 
             removedLines.forEach(line => {
                 this.fullBoxes.forEach(box => {
@@ -119,6 +118,7 @@
                         box.setY(y + 1);
                     }
                 });
+                
             });
         }
 
