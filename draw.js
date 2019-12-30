@@ -15,7 +15,7 @@
         }
 
         cleanCanvas() {
-            this.context.fillStyle = "#303030";
+            this.context.fillStyle = '#303030';
             this.context.fillRect(0, 0, this.gameCanvas.getWidth(), this.gameCanvas.getHeight());
         }
 
@@ -84,6 +84,14 @@
             this.context.lineTo(x * boxSize, y * boxSize + boxSize);
             this.context.closePath();
             this.context.stroke();
+        }
+
+        drawText(text) {
+            const fontSize = 40;
+            this.context.fillStyle = 'brown';
+            this.context.font = `${fontSize}px Orbitron`;
+            this.context.textAlign = "center";
+            this.context.fillText(text, this.gameCanvas.getWidth() / 2, this.gameCanvas.getHeight() / 2);
         }
     }
 })();

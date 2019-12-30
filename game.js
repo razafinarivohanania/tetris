@@ -4,6 +4,10 @@
     window.tetris.Game = class {
 
         constructor() {
+            this.gameInProgress = false;
+            this.gamePaused = false;
+            this.gameStatusList = { NO_GAME: 0, PAUSED: 1, GAME_OVER: 2 };
+            this.options = this.getDefaultOptions();
             this.fullBoxes = [];
             this.collision = new window.tetris.Collision(this.fullBoxes);
             const canvas = new window.tetris.Canvas();
@@ -19,24 +23,70 @@
             }
         }
 
-        newGame() {
-
+        getDefaultOptions() {
+            return {
+                name: 'Anonymous',
+                level: 1,
+                areaWidth: 11,
+                areaHeight: 25
+            };
         }
 
-        play() {
+        setOptions(options) {
+            this.options = options;
+            return this;
+        }
+
+        isGameInProgress() {
+            return this.gameInProgress;
+        }
+
+        playNewGame() {
+            this.gameInProgress = true;
+            this.draw.cleanCanvas();
+            this.boxes = [];
             this._initBoxes();
             this._handleEvents();
+        }
+
+        pauseGame() {
+            this.gamePaused = true;
+        }
+
+        resumeGame() {
+            this.gamePaused = false;
         }
 
         _addBoxes(boxes) {
             boxes.forEach(box => this.fullBoxes.push(box));
         }
 
+        _gameIsOver() {
+            return this.isGameOver = this.boxes.getY() <= 0 && !this._canBoxesMoveDown();
+        }
+
+        _updateGameStatus() {
+
+        }
+
+        _writeGameOver() {
+            this.draw.drawText('Game over!');
+        }
+
         _animate(event) {
+            if (this.gamePaused) {
+                return;
+            }
+
+            if (this._gameIsOver()) {
+                this._writeGameOver();
+                return;
+            }
+
             const leftKey = 37;
             const rightKey = 39;
             const downKey = 40;
-            const rKey = 82;
+            const upKey = 38;
 
             switch (event.keyCode) {
                 case leftKey:
@@ -52,7 +102,7 @@
                 case downKey:
                     this._moveDownBoxes();
                     break;
-                case rKey:
+                case upKey:
                     this._rotateBoxes();
                     break;
             }
@@ -118,7 +168,7 @@
                         box.setY(y + 1);
                     }
                 });
-                
+
             });
         }
 

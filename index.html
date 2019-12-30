@@ -30,10 +30,12 @@
                 <canvas id="next-box">Your browser not support canvas</canvas>
             </div>
             <div>
-                <a class="blue-button" id="newGameButton">New game</a>
+                <a class="blue-button" id="actionGameButton">New game</a>
                 <a class="blue-button" id="optionsButton">Options</a>
-                <a class="blue-button" id="helpButton">Help</a>
             </div>
+            <br />
+            <hr />
+            <div>Keys left, right and down to move. Key up to rotate box. Space to pause or resume game</div>
         </div>
         <div id="mask">
 
@@ -41,16 +43,18 @@
     </div>
     <div id="options" style="display: none">
         <div>Your name :</div>
-        <div><input type="text" name="name"/></div>
+        <div><input type="text" name="name" /></div>
         <br />
         <div>Level :</div>
-        <div><input type="number" min="1" max="10" value="1" name="level"/></div>
+        <div><input type="number" min="1" max="10" value="1" name="level" /></div>
         <br />
         <div>Area width :</div>
-        <div><input type="number" min="8" max="21" value="8" name="areaWidth"/></div>
+        <div><input type="number" min="8" max="21" value="8" name="areaWidth" /></div>
         <br />
         <div>Area height :</div>
-        <div><input type="number" min="10" max="50" value="10" name="areaHeight"/></div>
+        <div><input type="number" min="10" max="50" value="10" name="areaHeight" /></div>
+        <br />
+        <div>NB : New options will take effect in new game</div>
         <br />
         <div div="options-button">
             <div>
@@ -70,10 +74,6 @@
     <script type="text/javascript" src="collision.js"></script>
     <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="dashboard.js"></script>
-    <script type="text/javascript">
-        const game = new window.tetris.Game();
-        game.play();
-    </script>
 </body>
 
 </html>
