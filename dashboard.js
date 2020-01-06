@@ -59,7 +59,7 @@
         switch (action) {
             case 'New game':
                 if (game.isGameInProgress() && confirm("Do you abort this party ?") || !game.isGameInProgress()) {
-                    game.playNewGame();
+                    game.playNewGame(getOptions());
                     actionGameButton.textContent = 'Pause game';
                 }
                 return;

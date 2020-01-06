@@ -5,9 +5,21 @@
 
         constructor(fullBoxes) {
             this.fullBoxes = fullBoxes;
+            this.resetArea();
+        }
+
+        resetArea(boxCountHorizontal, boxCountVertical) {
+            if (!boxCountHorizontal) {
+                boxCountHorizontal = window.tetris.options.platform.box.count.horizontal;
+            }
+
+            if (!boxCountVertical) {
+                boxCountVertical = window.tetris.options.platform.box.count.vertical;
+            }
+
             this.platform = {
-                width: window.tetris.options.platform.box.count.horizontal,
-                height: window.tetris.options.platform.box.count.vertical
+                width: boxCountHorizontal,
+                height: boxCountVertical
             }
         }
 

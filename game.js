@@ -6,14 +6,13 @@
         constructor() {
             this.gameInProgress = false;
             this.gamePaused = false;
-            this.gameStatusList = { NO_GAME: 0, PAUSED: 1, GAME_OVER: 2 };
             this.options = this.getDefaultOptions();
             this.fullBoxes = [];
             this.collision = new window.tetris.Collision(this.fullBoxes);
-            const canvas = new window.tetris.Canvas();
-            canvas.resize();
+            this.canvas = new window.tetris.Canvas();
+            this.canvas.resize();
 
-            this.draw = new window.tetris.Draw(canvas);
+            this.draw = new window.tetris.Draw(this.canvas);
             this.draw.cleanCanvas();
             //this.draw.drawBackground();
 
@@ -41,11 +40,13 @@
             return this.gameInProgress;
         }
 
-        playNewGame() {
+        playNewGame(options) {
             this.gameInProgress = true;
             this.draw.cleanCanvas();
             this._emptyFullBoxes();
             this._initBoxes();
+            this.collision.resetArea(options.areaWidth, options.areaHeight);
+            this.canvas.resize(options.areaWidth, options.areaHeight);
             this._handleEvents();
         }
 
