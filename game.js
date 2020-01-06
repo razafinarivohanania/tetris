@@ -44,7 +44,7 @@
         playNewGame() {
             this.gameInProgress = true;
             this.draw.cleanCanvas();
-            this.boxes = [];
+            this._emptyFullBoxes();
             this._initBoxes();
             this._handleEvents();
         }
@@ -55,6 +55,12 @@
 
         resumeGame() {
             this.gamePaused = false;
+        }
+
+        _emptyFullBoxes() {
+            while (this.fullBoxes.length > 0) {
+                this.fullBoxes.pop();
+            }
         }
 
         _addBoxes(boxes) {

@@ -65,7 +65,7 @@
                 return;
             case 'Pause game':
                 game.pauseGame();
-                actionGameButton.textContent = 'Pause game'
+                actionGameButton.textContent = 'Resume game'
                 return;
             case 'Resume game':
                 game.resumeGame();
